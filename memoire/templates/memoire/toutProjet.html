@@ -1,0 +1,88 @@
+ 
+{% extends 'pages/base.html'%}
+{% load static %}
+
+{% block content %}
+
+
+
+<!--section class="fonctionnalites p-5">
+    <div class="container">
+      <a href="/affichageProjetAttente" class=" " style="text-decoration: none;">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card shadow-sm">
+            <div class="card-body justify-content-center text-center">
+              <h3>Projet exécuté</h3>
+              {% for p in projets %}
+                <option value="{{ p.id }}">{{ p.nom }}</option>
+                {% endfor %}
+            </div>
+          </div>
+        </div>
+      </a>
+
+        <div class="col-md-6">
+          <div class="card shadow-sm">
+             <div class="card-body justify-content-center text-center">
+              <h3> Projet en attente </h3>
+              <p>Tous les projets nouvellement créer</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card shadow-sm">
+           <div class="card-body justify-content-center text-center">
+              <h3>Projet en cours</h3>
+              <p> Tous mes projets dont l'une des taches est toujours en cours</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+              <div class="card-body justify-content-center text-center">
+                <h3>Projet en retard</h3>
+                <p>Tous les projets dont la date de fin est inferieur à la date actuelle</p>
+              </div>
+            </div>
+          </div>
+       
+      </div>
+    </div>
+  </section-->
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="card mb-3" style="height: 100%;">
+            <div class="card-block d-flex flex-column justify-content-center align-items-center">
+              <h3 class="card-title">Projet exécuté</h3>
+              <p class="card-text p-y-1">Some quick example text to build on the card title.</p>
+              <button class="alert alert-info"> <a href="" class="card-link" style="text-decoration: none;">Voir plus</a>
+              </button>
+            </div>
+          </div>
+        </div>
+          <div class="col-md-5">
+            <div class="card mb-3" style="height: 100%;">
+              <div class="card-block d-flex flex-column justify-content-center align-items-center">
+                <h3 class="card-title">Projet en attente</h3>
+                {% for p in projets %}
+                <a href="/createtacheview/{{ p.id }}" value="{{ p.id }}">{{ p.nom }}</a>
+                {% endfor %}
+                <!--h6 class="card-subtitle text-muted">Support card subtitle</h6-->
+                
+                <button class="alert alert-info"> <a href="" class="card-link" style="text-decoration: none;">Voir plus</a>
+                </button>
+              </div>
+            </div>
+          </div>  
+      </div>
+    </div>
+  </div>
+
+  
+{% endblock %}
+
+
+

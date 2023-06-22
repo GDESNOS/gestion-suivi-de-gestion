@@ -1,0 +1,75 @@
+{% extends 'pages/base.html'  %}
+
+{% block content %}
+
+
+<section class="vh-100 text-center">
+  <div class="container py-5 h-100 d-flex justify-content-center align-items-center">
+    <div class="col col-xl-10" style="max-width: 800px;">
+      <div class="card" style="border-radius: 1rem;">
+         <div class="container">
+             <form method="post" action="{% url 'creationTache' %}">
+              {% csrf_token %}
+
+               <fieldset>
+                <h4 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Création de tache</h4>
+                <label for="id">L'identifiant du projet {{ id }}</label>
+                <input type="hidden" name="id" value="{{ id }}">
+                <div class="form-group">
+                    <label for="id_description">Description de la tache</label>
+                    <textarea class="form-control" id="id_description"  name="descriptionTache" rows="3"></textarea>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <label  for="form2Example17">Date de debut</label>
+                    <p><input type="date" id="form2Example17" name="dateDebut" placeholder="Date de debut" ></p>
+                  </div>
+                  <div class="form-outline mb-4">
+                     <label for="dateFin">Date de fin</label>
+                     <p><input type="date"  id="dateFin" name="dateFin" placeholder="Date de fin" ></p>
+                  </div>
+  
+                  <div class="pt-1 mb-4">
+                    <button class="btn btn-dark btn-lg btn-block" type="submit">Créer tache</button>
+                  </div>
+               </fieldset>
+             </form>
+             <!--form action="" method="post">
+              {% csrf_token %}
+              
+              <div class="form-group">
+                <label for="descriptionTache">Description de la tache:</label>
+                <textarea class="form-control" id="descriptionTache" name="descriptionTache" rows="3"></textarea>
+              </div>
+              
+              <div class="form-group">
+                <label for="dateDebut">Date de début:</label>
+                <input type="date" class="form-control" id="dateDebut" name="dateDebut">
+              </div>
+              
+              <div class="form-group">
+                <label for="dateFin">Date de fin:</label>
+                <input type="date" class="form-control" id="dateFin" name="dateFin">
+              </div>
+              
+             <div class="form-group">
+                <label for="projet">Sélectionnez un projet:</label>
+                <select class="form-control" id="projet" name="projet">
+                  {% for projet in projets %}
+                  <option value="{{ projet.id }}">{{ projet.nom }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              
+              <button type="submit" class="btn btn-primary">Envoyer</button>
+            </form-->
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+     
+      
+      
+{% endblock %}

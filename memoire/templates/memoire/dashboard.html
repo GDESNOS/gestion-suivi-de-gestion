@@ -1,0 +1,68 @@
+ 
+{% extends 'pages/base.html'%}
+{% load static %}
+
+{% block content %}
+
+  <h2 style="text-align: center;">Mon tableau de bord</h2>
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="card mb-3" style="height: 100%;">
+            <div class="card-block d-flex flex-column justify-content-center align-items-center">
+              <h3 class="card-title">Projet exécuté</h3>
+              <p class="card-text p-y-1">Some quick example text to build on the card title.</p>
+              <button class="alert alert-info"> <a href="" class="card-link" style="text-decoration: none;">Voir plus</a>
+              </button>
+            </div>
+          </div>
+        </div>
+          <div class="col-md-5">
+            <div class="card mb-3" style="height: 100%;">
+              <div class="card-block d-flex flex-column justify-content-center align-items-center">
+                <h3 class="card-title">Projet en attente</h3>
+                {% for p in projets %}
+               <p><a href="" style="text-decoration: none;" value="{{ p.id }}">{{ p.nom }}</a>
+                <button class="btn btn-info"> <a href="{% url 'contenu' p.id %}" class="card-link" style="text-decoration: none;">Voir plus</a>
+                </button></p> 
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        <div class="col-12">  <br/>
+          <br/>
+         </div>
+          <div class="col-md-5">
+            <div class="card mb-3" style="height: 100%;">
+              <div class="card-block d-flex flex-column justify-content-center align-items-center">
+                <h3 class="card-title">Projet en cours</h3>
+
+                <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+                <p class="card-text p-y-1">Some quick example text to build on the card title.</p>
+                <button class="alert alert-info"> <a href="" class="card-link" style="text-decoration: none;">Voir plus</a>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-5">
+            <div class="card mb-3" style="height: 100%;">
+              <div class="card-block d-flex flex-column justify-content-center align-items-center">
+                <h3 class="card-title">Projet en retard</h3>
+                <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+                <p class="card-text p-y-1">Some quick example text to build on the card title.</p>
+                <button class="alert alert-info"> <a href="" class="card-link" style="text-decoration: none; height: 20px;">Voir plus</a>
+                </button>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  
+{% endblock %}
+
+
+

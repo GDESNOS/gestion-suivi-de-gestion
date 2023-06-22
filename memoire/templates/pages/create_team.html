@@ -1,0 +1,58 @@
+
+{% extends 'pages/base.html'%}
+
+{% block titre %} Processus de création de projet {% endblock  %}
+{% block content %}
+
+<div class="create_team p-5">
+<form id="regForm" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+    <h1 class="text-center m-2"> Processus de création de projet</h1>
+    
+    <!-- One "tab" for each step in the form: -->
+    <div class="tab p-3">
+        <label for="categorie">Sélectionnez une catégorie :</label>
+        <select name="categorie" id="categorie" class="form-select m-3 p-2">
+          {% for c in categories %}
+          <option value="{{ c.id }}">{{ c.nom_categorie }}</option>
+          {% endfor %}
+        </select>
+      </div>
+       
+      <div class="tab p-3">
+        <label for="user"> Ajouter les collaborateurs: </label>
+        <select id="user" name="user" class="form-select m-3 p-2">
+          {% for user in utilisateurs %}
+          <option value="{{ user.id }}">{{ user.email }}</option>
+          {% endfor %}
+        </select>
+      
+      <small>Mettez l'email de vos collaborateurs pour rejoindre l' equipe de projet </small>
+    </div>
+    
+    <div class="tab p-3">
+        <label for="team_m">Detail du projet :</label>    
+          <p><input type="text" name="nom_projet" placeholder="Nom du projet"></p>
+      <p><input type="text" name="description" placeholder="Description" ></p>
+      <p><input type="date" name="dateFin" placeholder="Date de fin" ></p>
+      <p><input type="file" name="fichiers" id=""></p>
+    </div>
+    
+    <div style="overflow:auto;">
+      <div style="float:right;">
+        <button type="button" class="btn btn-secondary" id="prevBtn" onclick="nextPrev(-1)">Précédent</button>
+        <button type="button" class="btn btn-primary"  id="nextBtn" onclick="nextPrev(1)">Suivant</button>
+      </div>
+    </div>
+    
+    <!-- Circles which indicates the steps of the form: -->
+    <div style="text-align:center;margin-top:40px;">
+      <span class="step text-primary"></span>
+      <span class="step text-primary"></span>
+      <span class="step text-primary"></span>
+    </div>
+    
+    </form>
+</div>
+
+    {% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'pages/base.html'%}
+
+{% load static %}
+
+{% block content %}
+
+<section class="vh-100 text-center" style="background-color:rgb(238, 238, 241);">
+  <div class="container py-5 h-100  ">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10 ">
+        <div class="card" style="border-radius: 1rem;">
+          <div class="row g-0">
+            
+            <div class="col-12 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
+
+                <form action="" method="post">
+                  {% csrf_token %}
+
+                  <div class="d-flex align-items-center mb-3 pb-1">
+                  </div>
+                    {% if messages %}
+                       {% for message in messages %}
+                        <div class="text-danger"> {{ message }}</div>
+                           {% endfor %}
+
+                    {% endif %}
+
+                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Se connecter </h5>
+                    
+                  <div class="form-outline mb-4">
+                    <label  class="form-label" for="form2Example17">Nom d'utilisateur </label>
+                    <input type="text" id="form2Example17" name="username" class="form-control form-control-lg" />
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form2Example27">mot de passe </label>
+
+                    <input type="password" id="form2Example27" name="password" class="form-control form-control-lg" />
+                  </div>
+
+                  <div class="pt-1 mb-4">
+                    <button class="btn btn-dark btn-lg btn-block" type="submit">S'identifier</button>
+                  </div>
+
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
